@@ -1,0 +1,20 @@
+{
+  "name": "@coloradix/tailwindcss-playground",
+  "private": true,
+  "scripts": {
+    "dev:playground": "vite dev",
+    "build:playground": "vite build"
+  },
+  "dependencies": {
+    "solid-js": "^1.7.5"
+  },
+  "devDependencies": {
+    "@coloradix/tailwindcss": "undefined",
+    "@coloradix/tsconfig": "undefined",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.5",
+    "vite-plugin-solid": "^2.7.0"
+  }
+}

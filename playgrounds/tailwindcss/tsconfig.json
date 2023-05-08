@@ -1,0 +1,6 @@
+{
+  "extends": "@coloradix/tsconfig/playground-vite-solid.json",
+  "compilerOptions": {},
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "commit": "commit",
+    "dev:playground": "turbo dev:playground",
+    "build": "turbo build",
+    "build:playground": "turbo build:playground"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.26.1",
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@commitlint/prompt-cli": "^17.6.3",
+    "@radix-ui/colors": "^0.1.8",
+    "@types/node": "^20.1.0",
+    "tailwindcss": "^3.3.2",
+    "turbo": "^1.9.3",
+    "vite": "^4.3.5",
+    "vite-plugin-dts": "^2.3.0"
+  }
+}

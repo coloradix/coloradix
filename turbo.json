@@ -1,0 +1,16 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "dev:playground": {
+      "cache": false
+    },
+    "build": {
+      "cache": true,
+      "outputs": ["dist/**"]
+    },
+    "build:playground": {
+      "cache": true,
+      "outputs": ["dist/**"]
+    }
+  }
+}

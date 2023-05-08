@@ -1,0 +1,36 @@
+{
+  "name": "@coloradix/tailwindcss",
+  "version": "0.0.0",
+  "keywords": [
+    "@radix-ui/colors",
+    "tailwindcss"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coloradix/coloradix.git"
+  },
+  "author": "flamrdevs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coloradix/coloradix/issues"
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "@radix-ui/colors": "^0.1.8",
+    "tailwindcss": "^3.0.0"
+  },
+  "devDependencies": {
+    "@coloradix/tsconfig": "undefined"
+  }
+}
