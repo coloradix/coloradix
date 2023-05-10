@@ -1,5 +1,11 @@
 # @coloradix/tailwindcss
 
+## 1.1.0
+
+### Minor Changes
+
+- 1063a6f: Refactoring alias
+
 ## 1.0.0
 
 ### Major Changes
