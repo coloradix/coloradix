@@ -3,38 +3,38 @@ import { render } from "solid-js/web";
 
 import "./index.css";
 
-type ThemeMode = "light" | "dark";
-type ThemePrimary = "red" | "green" | "blue";
+type Theme = "light" | "dark";
+type AliasPrimary = "red" | "green" | "blue";
 
-const [mode, setMode] = createRoot(() => createSignal<ThemeMode>("light"));
-const [primary, setPrimary] = createRoot(() => createSignal<ThemePrimary>("red"));
+const [theme, setTheme] = createRoot(() => createSignal<Theme>("light"));
+const [primary, setPrimary] = createRoot(() => createSignal<AliasPrimary>("red"));
 
-const toggleMode = () => {
-  setMode((state) => (state === "dark" ? "light" : "dark"));
+const toggleTheme = () => {
+  setTheme((state) => (state === "dark" ? "light" : "dark"));
 };
 
-const togglePrimary = () => {
+const toggleAliasPrimary = () => {
   setPrimary((state) => (state === "red" ? "green" : state === "green" ? "blue" : "red"));
 };
 
-const setDocumentThemeMode = (mode: ThemeMode) => {
-  document.documentElement.setAttribute("data-theme", mode);
+const setDocumentTheme = (theme: Theme) => {
+  document.documentElement.setAttribute("data-theme", theme);
 };
 
-const setDocumentThemePrimary = (primary: ThemePrimary) => {
-  document.documentElement.setAttribute("data-theme-primary", primary);
+const setDocumentAliasPrimary = (primary: AliasPrimary) => {
+  document.documentElement.setAttribute("data-alias-primary", primary);
 };
 
-setDocumentThemeMode(mode());
-setDocumentThemePrimary(primary());
+setDocumentTheme(theme());
+setDocumentAliasPrimary(primary());
 
 const App = () => {
   createEffect(() => {
-    setDocumentThemeMode(mode());
+    setDocumentTheme(theme());
   });
 
   createEffect(() => {
-    setDocumentThemePrimary(primary());
+    setDocumentAliasPrimary(primary());
   });
 
   return (
@@ -43,17 +43,17 @@ const App = () => {
         <button
           type="button"
           class="inline-flex justify-center items-center rounded-xl bg-primary-9 text-white-12 px-6 py-1 font-medium text-lg transition-colors"
-          onClick={toggleMode}
+          onClick={toggleTheme}
         >
-          toggle mode
+          toggle theme
         </button>
 
         <button
           type="button"
           class="inline-flex justify-center items-center rounded-xl bg-primary-9 text-white-12 px-6 py-1 font-medium text-lg transition-colors"
-          onClick={togglePrimary}
+          onClick={toggleAliasPrimary}
         >
-          toggle primary
+          toggle alias primary
         </button>
       </div>
     </div>

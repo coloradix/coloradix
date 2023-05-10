@@ -7,7 +7,7 @@ simple radix colors plugin for tailwind
 - Typescript first
 - Custom selected color individually
 - Light/Dark mode with data attribute `data-theme="{light|dark}"`
-- Color alias with data attribute `data-theme-{alias}="{color}"`
+- Color alias with data attribute `data-alias-{name}="{color}"`
 - Optional overlay colors (black and white)
 - Support tailwind opacity modifier `bg-{alias}-{shade}/{opacity}`
 
@@ -162,7 +162,7 @@ Expected output will be added to tailwind base layer
 }
 
 :root,
-[data-theme-primary="green"] {
+[data-alias-primary="green"] {
   --primary-1: var(--green-1);
   --primary-2: var(--green-2);
   --primary-3: var(--green-3);
@@ -177,7 +177,7 @@ Expected output will be added to tailwind base layer
   --primary-12: var(--green-12);
 }
 
-[data-theme-primary="violet"] {
+[data-alias-primary="violet"] {
   --primary-1: var(--violet-1);
   --primary-2: var(--violet-2);
   --primary-3: var(--violet-3);

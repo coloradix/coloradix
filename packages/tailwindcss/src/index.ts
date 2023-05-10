@@ -104,7 +104,7 @@ const coloradix = <N extends string>(color: Color<N>) => {
                       if (Array.isArray(color)) {
                         color.forEach((value, index) => {
                           addBase({
-                            [[index === 0 && `:root`, `[data-theme-${name}="${value}"]`].filter(Boolean).join(", ")]: colorobject({
+                            [[index === 0 && `:root`, `[data-alias-${name}="${value}"]`].filter(Boolean).join(", ")]: colorobject({
                               key: (i) => `--${name}-${i}`,
                               value: (i) => `var(--${value}-${i})`,
                             }),
