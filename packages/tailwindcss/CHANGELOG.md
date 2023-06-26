@@ -1,5 +1,11 @@
 # @coloradix/tailwindcss
 
+## 1.2.0
+
+### Minor Changes
+
+- 7891ab2: Update dependencies
+
 ## 1.1.0
 
 ### Minor Changes
