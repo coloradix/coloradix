@@ -7,14 +7,14 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.26.1",
-    "@commitlint/cli": "^17.6.3",
-    "@commitlint/config-conventional": "^17.6.3",
-    "@commitlint/prompt-cli": "^17.6.3",
-    "@radix-ui/colors": "^0.1.8",
-    "@types/node": "^20.1.0",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/prompt-cli": "^17.6.6",
+    "@radix-ui/colors": "^1.0.0",
+    "@types/node": "^20.3.1",
     "tailwindcss": "^3.3.2",
-    "turbo": "^1.9.3",
-    "vite": "^4.3.5",
+    "turbo": "^1.10.6",
+    "vite": "^4.3.9",
     "vite-plugin-dts": "^2.3.0"
   }
 }
