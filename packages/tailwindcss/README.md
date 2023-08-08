@@ -1,4 +1,23 @@
-# @coloradix/tailwindcss
+<p align="center">
+  <h1 align="center">coloradix</h1>
+</p>
+
+<p align="center">
+  <a title="license" href="https://github.com/coloradix/coloradix/blob/main/LICENSE">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/npm/l?t=dark&n=@coloradix/tailwindcss">
+      <img alt="license" src="https://none.deno.dev/npm/l?t=light&n=@coloradix/tailwindcss" hspace="1">
+    </picture>
+  </a>
+  <a title="version" href="https://www.npmjs.com/package/@coloradix/tailwindcss">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/npm/v?t=dark&n=@coloradix/tailwindcss">
+      <img alt="version" src="https://none.deno.dev/npm/v?t=light&n=@coloradix/tailwindcss" hspace="1">
+    </picture>
+  </a>
+</p>
+
+# coloradix tailwindcss
 
 simple radix colors plugin for tailwind
 
