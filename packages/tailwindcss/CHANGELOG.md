@@ -1,5 +1,11 @@
 # @coloradix/tailwindcss
 
+## 1.3.0
+
+### Minor Changes
+
+- 7126444: update radix colors
+
 ## 1.2.0
 
 ### Minor Changes
