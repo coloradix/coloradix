@@ -17,8 +17,8 @@ importers:
         specifier: ^17.6.6
         version: 17.6.6
       '@radix-ui/colors':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^2.0.1
+        version: 2.0.1
       '@types/node':
         specifier: ^20.3.1
         version: 20.3.1
@@ -1109,6 +1109,10 @@ packages:
 
   /@radix-ui/colors@1.0.0:
     resolution: {integrity: sha512-l8Rfw7zR6sfPsbXrBq3Xit96Xo+CSFyRFqRX/ls8W/w+HXzbwc5dbVvl+qRjsSIRoC9EiTMRV/QpJHziuTjoqg==}
+    dev: false
+
+  /@radix-ui/colors@2.0.1:
+    resolution: {integrity: sha512-EhWky2oSIf5y+BDfrAY+Rykrkh7m2/M/bgCVRr3M+Hnr4JOh+mtFZLHUS1j/WzaPw1uvd0vwhK3cbxsR0QnCgw==}
     dev: false
 
   /@rollup/pluginutils@5.0.2:
