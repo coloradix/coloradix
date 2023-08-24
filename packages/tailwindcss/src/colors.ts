@@ -4,6 +4,8 @@ import {
   tomatoDark,
   red as redLight,
   redDark,
+  ruby as rubyLight,
+  rubyDark,
   crimson as crimsonLight,
   crimsonDark,
   pink as pinkLight,
@@ -14,6 +16,8 @@ import {
   purpleDark,
   violet as violetLight,
   violetDark,
+  iris as irisLight,
+  irisDark,
   indigo as indigoLight,
   indigoDark,
   blue as blueLight,
@@ -22,6 +26,8 @@ import {
   cyanDark,
   teal as tealLight,
   tealDark,
+  jade as jadeLight,
+  jadeDark,
   green as greenLight,
   greenDark,
   grass as grassLight,
@@ -66,15 +72,18 @@ import type { ColorValue } from "./types";
 // colors
 export const tomato: ColorValue<"tomato"> = [tomatoLight, tomatoDark];
 export const red: ColorValue<"red"> = [redLight, redDark];
+export const ruby: ColorValue<"ruby"> = [rubyLight, rubyDark];
 export const crimson: ColorValue<"crimson"> = [crimsonLight, crimsonDark];
 export const pink: ColorValue<"pink"> = [pinkLight, pinkDark];
 export const plum: ColorValue<"plum"> = [plumLight, plumDark];
 export const purple: ColorValue<"purple"> = [purpleLight, purpleDark];
 export const violet: ColorValue<"violet"> = [violetLight, violetDark];
+export const iris: ColorValue<"iris"> = [irisLight, irisDark];
 export const indigo: ColorValue<"indigo"> = [indigoLight, indigoDark];
 export const blue: ColorValue<"blue"> = [blueLight, blueDark];
 export const cyan: ColorValue<"cyan"> = [cyanLight, cyanDark];
 export const teal: ColorValue<"teal"> = [tealLight, tealDark];
+export const jade: ColorValue<"jade"> = [jadeLight, jadeDark];
 export const green: ColorValue<"green"> = [greenLight, greenDark];
 export const grass: ColorValue<"grass"> = [grassLight, grassDark];
 export const orange: ColorValue<"orange"> = [orangeLight, orangeDark];
