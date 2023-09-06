@@ -41,3 +41,5 @@ color radix
 ## License
 
 MIT
+
+<img width="100%" src="https://hiiiits.deno.dev/hit/coloradix/coloradix" alt="hiiiits" title="hiiiits" />
