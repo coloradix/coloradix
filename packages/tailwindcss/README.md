@@ -47,28 +47,25 @@ Typescript Config (Typescript)
 ```tsx
 import type { Config } from "tailwindcss";
 
-import coloradix, { gray, green, violet } from "@coloradix/tailwindcss";
+import coloradix, { gray, red, green, blue } from "@coloradix/tailwindcss";
 
 const radix = coloradix({
   gray,
+  red,
   green,
-  violet,
+  blue,
 })
   .alias({
     neutral: "gray" /** fixed color */,
-    primary: ["green", "violet"] /** dynamic color, first element of array used as main color */,
+    primary: ["red", "green", "blue"] /** dynamic color, first element of array used as main color */,
   })
-  .overlay(true)
-  .enable(true);
+  .build();
 
 export default {
   content: [],
   theme: {
     colors: radix.colors,
     extend: {},
-  },
-  corePlugins: {
-    preflight: false,
   },
   plugins: [radix.plugin],
 } satisfies Config;
@@ -83,23 +80,35 @@ Alias will be used as tailwind colors
 </div>
 ```
 
-Expected output will be added to tailwind base layer
+Expected output, will be added to tailwind base layer
 
 ```css
 :root,
 [data-theme="light"] {
   --gray-1: 0 0% 99%;
-  --gray-2: 0 0% 97.3%;
-  --gray-3: 0 0% 95.1%;
-  --gray-4: 0 0% 93%;
-  --gray-5: 0 0% 90.9%;
-  --gray-6: 0 0% 88.7%;
-  --gray-7: 0 0% 85.8%;
-  --gray-8: 0 0% 78%;
-  --gray-9: 0 0% 56.1%;
-  --gray-10: 0 0% 52.3%;
-  --gray-11: 0 0% 43.5%;
-  --gray-12: 0 0% 9%;
+  --gray-2: 0 0% 97.5%;
+  --gray-3: 0 0% 94.6%;
+  --gray-4: 0 0% 92%;
+  --gray-5: 0 0% 89.5%;
+  --gray-6: 0 0% 86.8%;
+  --gray-7: 0 0% 83%;
+  --gray-8: 0 0% 73.2%;
+  --gray-9: 0 0% 55.2%;
+  --gray-10: 0 0% 50.3%;
+  --gray-11: 0 0% 39.3%;
+  --gray-12: 0 0% 12.5%;
+  --red-1: 359 100% 99.4%;
+  --red-2: 0 100% 98.4%;
+  --red-3: 360 100% 96.8%;
+  --red-4: 360 97.9% 94.8%;
+  --red-5: 360 90.2% 91.9%;
+  --red-6: 360 81.7% 87.8%;
+  --red-7: 359 74.2% 81.7%;
+  --red-8: 359 69.5% 74.3%;
+  --red-9: 358 75% 59%;
+  --red-10: 358 67.4% 54.6%;
+  --red-11: 358 65% 47%;
+  --red-12: 350 63% 24%;
   --green-1: 136 50% 98.9%;
   --green-2: 138 62.5% 96.9%;
   --green-3: 139 55.2% 94.5%;
@@ -111,58 +120,70 @@ Expected output will be added to tailwind base layer
   --green-9: 151 55% 41.5%;
   --green-10: 152 57.5% 37.6%;
   --green-11: 153 67% 28.5%;
-  --green-12: 155 40% 14%;
-  --violet-1: 255 65% 99.4%;
-  --violet-2: 252 100% 99%;
-  --violet-3: 252 96.9% 97.4%;
-  --violet-4: 252 91.5% 95.5%;
-  --violet-5: 252 85.1% 93%;
-  --violet-6: 252 77.8% 89.4%;
-  --violet-7: 252 71% 83.7%;
-  --violet-8: 252 68.6% 76.3%;
-  --violet-9: 252 56% 57.5%;
-  --violet-10: 251 48.1% 53.5%;
-  --violet-11: 250 43% 48%;
-  --violet-12: 254 60% 18.5%;
+  --green-12: 155 40% 16.5%;
+  --blue-1: 206 100% 99.2%;
+  --blue-2: 210 100% 98%;
+  --blue-3: 209 100% 96.5%;
+  --blue-4: 210 98.8% 94%;
+  --blue-5: 209 95% 90.1%;
+  --blue-6: 209 81.2% 84.5%;
+  --blue-7: 208 77.5% 76.9%;
+  --blue-8: 206 81.9% 65.3%;
+  --blue-9: 206 100% 50%;
+  --blue-10: 208 93.5% 47.4%;
+  --blue-11: 211 90% 42%;
+  --blue-12: 216 71% 23%;
 }
 
 [data-theme="dark"] {
-  --gray-1: 0 0% 8.5%;
-  --gray-2: 0 0% 11%;
-  --gray-3: 0 0% 13.6%;
-  --gray-4: 0 0% 15.8%;
-  --gray-5: 0 0% 17.9%;
-  --gray-6: 0 0% 20.5%;
-  --gray-7: 0 0% 24.3%;
-  --gray-8: 0 0% 31.2%;
-  --gray-9: 0 0% 43.9%;
-  --gray-10: 0 0% 49.4%;
-  --gray-11: 0 0% 62.8%;
-  --gray-12: 0 0% 93%;
+  --gray-1: 0 0% 9.5%;
+  --gray-2: 0 0% 10.5%;
+  --gray-3: 0 0% 15.8%;
+  --gray-4: 0 0% 18.9%;
+  --gray-5: 0 0% 21.7%;
+  --gray-6: 0 0% 24.7%;
+  --gray-7: 0 0% 29.1%;
+  --gray-8: 0 0% 37.5%;
+  --gray-9: 0 0% 43%;
+  --gray-10: 0 0% 50.7%;
+  --gray-11: 0 0% 69.5%;
+  --gray-12: 0 0% 93.5%;
+  --red-1: 353 23% 9.8%;
+  --red-2: 354 30.2% 12.4%;
+  --red-3: 353 40.8% 16.4%;
+  --red-4: 353 46.3% 19.2%;
+  --red-5: 353 51.2% 22.1%;
+  --red-6: 353 57.3% 26.2%;
+  --red-7: 354 65.7% 33.2%;
+  --red-8: 358 75% 47.1%;
+  --red-9: 358 75% 59%;
+  --red-10: 359 84.8% 67.6%;
+  --red-11: 358 100% 76%;
+  --red-12: 350 100% 91%;
   --green-1: 146 30% 7.4%;
-  --green-2: 155 44.2% 8.4%;
-  --green-3: 155 46.7% 10.9%;
-  --green-4: 154 48.4% 12.9%;
-  --green-5: 154 49.7% 14.9%;
-  --green-6: 154 50.9% 17.6%;
-  --green-7: 153 51.8% 21.8%;
-  --green-8: 151 51.7% 28.4%;
+  --green-2: 154 31.8% 8.6%;
+  --green-3: 154 37.6% 11.5%;
+  --green-4: 154 41% 13.6%;
+  --green-5: 154 43.7% 15.7%;
+  --green-6: 154 46.7% 18.7%;
+  --green-7: 153 50.3% 24.4%;
+  --green-8: 151 52.2% 36.1%;
   --green-9: 151 55% 41.5%;
-  --green-10: 151 49.3% 46.5%;
-  --green-11: 151 50% 53.2%;
-  --green-12: 137 72% 94%;
-  --violet-1: 250 20% 10.2%;
-  --violet-2: 255 30.3% 12.9%;
-  --violet-3: 253 37% 18.4%;
-  --violet-4: 252 40.1% 22.5%;
-  --violet-5: 252 42.2% 26.2%;
-  --violet-6: 251 44.3% 31.1%;
-  --violet-7: 250 46.8% 38.9%;
-  --violet-8: 250 51.8% 51.2%;
-  --violet-9: 252 56% 57.5%;
-  --violet-10: 251 63.2% 63.2%;
-  --violet-11: 250 95% 76.8%;
-  --violet-12: 252 87% 96.4%;
+  --green-10: 151 55.2% 46.7%;
+  --green-11: 151 65% 54%;
+  --green-12: 144 70% 82%;
+  --blue-1: 212 35% 9.2%;
+  --blue-2: 216 50% 11.8%;
+  --blue-3: 214 57.6% 15.6%;
+  --blue-4: 214 62.3% 18.4%;
+  --blue-5: 213 66.6% 21.1%;
+  --blue-6: 212 72.6% 25.2%;
+  --blue-7: 211 81.3% 32.4%;
+  --blue-8: 211 85.2% 47.8%;
+  --blue-9: 206 100% 50%;
+  --blue-10: 206 100% 61.8%;
+  --blue-11: 205 100% 71%;
+  --blue-12: 205 100% 88%;
 }
 
 :root {
@@ -181,6 +202,21 @@ Expected output will be added to tailwind base layer
 }
 
 :root,
+[data-alias-primary="red"] {
+  --primary-1: var(--red-1);
+  --primary-2: var(--red-2);
+  --primary-3: var(--red-3);
+  --primary-4: var(--red-4);
+  --primary-5: var(--red-5);
+  --primary-6: var(--red-6);
+  --primary-7: var(--red-7);
+  --primary-8: var(--red-8);
+  --primary-9: var(--red-9);
+  --primary-10: var(--red-10);
+  --primary-11: var(--red-11);
+  --primary-12: var(--red-12);
+}
+
 [data-alias-primary="green"] {
   --primary-1: var(--green-1);
   --primary-2: var(--green-2);
@@ -196,46 +232,46 @@ Expected output will be added to tailwind base layer
   --primary-12: var(--green-12);
 }
 
-[data-alias-primary="violet"] {
-  --primary-1: var(--violet-1);
-  --primary-2: var(--violet-2);
-  --primary-3: var(--violet-3);
-  --primary-4: var(--violet-4);
-  --primary-5: var(--violet-5);
-  --primary-6: var(--violet-6);
-  --primary-7: var(--violet-7);
-  --primary-8: var(--violet-8);
-  --primary-9: var(--violet-9);
-  --primary-10: var(--violet-10);
-  --primary-11: var(--violet-11);
-  --primary-12: var(--violet-12);
+[data-alias-primary="blue"] {
+  --primary-1: var(--blue-1);
+  --primary-2: var(--blue-2);
+  --primary-3: var(--blue-3);
+  --primary-4: var(--blue-4);
+  --primary-5: var(--blue-5);
+  --primary-6: var(--blue-6);
+  --primary-7: var(--blue-7);
+  --primary-8: var(--blue-8);
+  --primary-9: var(--blue-9);
+  --primary-10: var(--blue-10);
+  --primary-11: var(--blue-11);
+  --primary-12: var(--blue-12);
 }
 
 :root {
   --black-1: hsla(0, 0%, 0%, 0.012);
-  --black-2: hsla(0, 0%, 0%, 0.027);
-  --black-3: hsla(0, 0%, 0%, 0.047);
-  --black-4: hsla(0, 0%, 0%, 0.071);
-  --black-5: hsla(0, 0%, 0%, 0.09);
-  --black-6: hsla(0, 0%, 0%, 0.114);
-  --black-7: hsla(0, 0%, 0%, 0.141);
-  --black-8: hsla(0, 0%, 0%, 0.22);
-  --black-9: hsla(0, 0%, 0%, 0.439);
-  --black-10: hsla(0, 0%, 0%, 0.478);
-  --black-11: hsla(0, 0%, 0%, 0.565);
-  --black-12: hsla(0, 0%, 0%, 0.91);
-  --white-1: hsla(0, 0%, 100%, 0);
+  --black-2: hsla(0, 0%, 0%, 0.024);
+  --black-3: hsla(0, 0%, 0%, 0.055);
+  --black-4: hsla(0, 0%, 0%, 0.078);
+  --black-5: hsla(0, 0%, 0%, 0.106);
+  --black-6: hsla(0, 0%, 0%, 0.133);
+  --black-7: hsla(0, 0%, 0%, 0.169);
+  --black-8: hsla(0, 0%, 0%, 0.267);
+  --black-9: hsla(0, 0%, 0%, 0.447);
+  --black-10: hsla(0, 0%, 0%, 0.498);
+  --black-11: hsla(0, 0%, 0%, 0.608);
+  --black-12: hsla(0, 0%, 0%, 0.875);
+  --white-1: hsla(0, 0%, 0%, 0);
   --white-2: hsla(0, 0%, 100%, 0.013);
-  --white-3: hsla(0, 0%, 100%, 0.034);
-  --white-4: hsla(0, 0%, 100%, 0.056);
-  --white-5: hsla(0, 0%, 100%, 0.086);
-  --white-6: hsla(0, 0%, 100%, 0.124);
-  --white-7: hsla(0, 0%, 100%, 0.176);
-  --white-8: hsla(0, 0%, 100%, 0.249);
-  --white-9: hsla(0, 0%, 100%, 0.386);
-  --white-10: hsla(0, 0%, 100%, 0.446);
-  --white-11: hsla(0, 0%, 100%, 0.592);
-  --white-12: hsla(0, 0%, 100%, 0.923);
+  --white-3: hsla(0, 0%, 100%, 0.069);
+  --white-4: hsla(0, 0%, 100%, 0.104);
+  --white-5: hsla(0, 0%, 100%, 0.134);
+  --white-6: hsla(0, 0%, 100%, 0.169);
+  --white-7: hsla(0, 0%, 100%, 0.216);
+  --white-8: hsla(0, 0%, 100%, 0.312);
+  --white-9: hsla(0, 0%, 100%, 0.372);
+  --white-10: hsla(0, 0%, 100%, 0.455);
+  --white-11: hsla(0, 0%, 100%, 0.662);
+  --white-12: hsla(0, 0%, 100%, 0.926);
 }
 ```
 
