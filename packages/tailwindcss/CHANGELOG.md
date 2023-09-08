@@ -1,5 +1,31 @@
 # @coloradix/tailwindcss
 
+## 1.5.0
+
+### Minor Changes
+
+- 917a440: New build options
+
+```typescript
+// from
+const radix = coloradix({
+  /* color */
+})
+  .alias({
+    /* alias */
+  })
+  .overlay(true)
+  .enable(true);
+// to
+const radix = coloradix({
+  /* color */
+})
+  .alias({
+    /* alias */
+  })
+  .build(/* DEFAULT : { overlay = true } = {} */);
+```
+
 ## 1.4.0
 
 ### Minor Changes
