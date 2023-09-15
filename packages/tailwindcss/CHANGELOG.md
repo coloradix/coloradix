@@ -1,5 +1,11 @@
 # @coloradix/tailwindcss
 
+## 1.5.1
+
+### Patch Changes
+
+- 2a49987: Improve typing and docs
+
 ## 1.5.0
 
 ### Minor Changes
