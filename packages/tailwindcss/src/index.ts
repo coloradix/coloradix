@@ -8,18 +8,28 @@ import type { Shade, CustomColorObject, RadixColorObject, ColorValue, Color, Ali
 type PluginCreator = Parameters<typeof plugin>[0];
 type TailwindPlugin = { handler: PluginCreator; config?: Partial<Config> | undefined };
 
+/**
+ *
+ * @param color colors
+ * @returns alias function
+ */
 const coloradix = <N extends string>(color: Color<N>) => {
   return {
+    /**
+     *
+     * @param alias aliases
+     * @returns build function
+     */
     alias: <A extends string>(alias: Alias<A, N>) => {
       return {
+        /**
+         *
+         * @param options build options
+         * @returns colors and plugin
+         */
         build: <O extends boolean = true>(
-          options: {
-            overlay?: O;
-          } = {}
-        ): {
-          colors: ColorsResult<A> & (O extends true | undefined ? ColorsOverlayResult : {});
-          plugin: TailwindPlugin;
-        } => {
+          options: { overlay?: O } = {}
+        ): { colors: ColorsResult<A> & (O extends true | undefined ? ColorsOverlayResult : {}); plugin: TailwindPlugin } => {
           const { overlay = true } = options;
 
           const aliasentries = Object.entries(alias) as [string, string | string[]][];

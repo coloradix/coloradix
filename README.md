@@ -16,8 +16,8 @@ color radix
       <td>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <span style="font-size: 1rem; font-weight: 500;">@coloradix/tailwindcss</span>
-          <img alt="npm" src="https://none.deno.dev/npm/l?n=@coloradix/tailwindcss" />
-          <img alt="npm" src="https://none.deno.dev/npm/v?n=@coloradix/tailwindcss" />
+          <img alt="npm" src="https://none.deno.dev/npm/l/@coloradix/tailwindcss" />
+          <img alt="npm" src="https://none.deno.dev/npm/v/@coloradix/tailwindcss" />
         </div>
       </td>
       <td>
