@@ -1,3 +1,28 @@
+<p>
+  <img width="100%" src="https://hiiiits.deno.dev/hit/coloradix/coloradix" alt="hiiiits" title="hiiiits" />
+</p>
+
+<p align="center">
+  <a title="license" href="https://github.com/coloradix/coloradix/blob/main/LICENSE">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/github/repo/l/coloradix/coloradix?t=dark">
+      <img alt="license" src="https://none.deno.dev/github/repo/l/coloradix/coloradix?t=light" hspace="1">
+    </picture>
+  </a>
+  <a title="forks" href="https://github.com/coloradix/coloradix/forks">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/github/repo/fc/coloradix/coloradix?t=dark">
+      <img alt="forks" src="https://none.deno.dev/github/repo/fc/coloradix/coloradix?t=light" hspace="1">
+    </picture>
+  </a>
+  <a title="stargazers" href="https://github.com/coloradix/coloradix/stargazers">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://none.deno.dev/github/repo/sc/coloradix/coloradix?t=dark">
+      <img alt="stargazers" src="https://none.deno.dev/github/repo/sc/coloradix/coloradix?t=light" hspace="1">
+    </picture>
+  </a>
+</p>
+
 # coloradix
 
 color radix
@@ -41,5 +66,3 @@ color radix
 ## License
 
 MIT
-
-<img width="100%" src="https://hiiiits.deno.dev/hit/coloradix/coloradix" alt="hiiiits" title="hiiiits" />
