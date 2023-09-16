@@ -1,5 +1,11 @@
 # @coloradix/tailwindcss
 
+## 1.6.0
+
+### Minor Changes
+
+- c903d56: type module
+
 ## 1.5.1
 
 ### Patch Changes
