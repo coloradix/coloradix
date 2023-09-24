@@ -38,7 +38,7 @@
   "scripts": {
     "build": "vite build"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@radix-ui/colors": "^2.1.0"
   },
   "devDependencies": {

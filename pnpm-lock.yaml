@@ -51,11 +51,8 @@ importers:
   packages/tailwindcss:
     dependencies:
       '@coloradix/colors':
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../colors
-      '@radix-ui/colors':
-        specifier: ^2.1.0
-        version: 2.1.0
       tailwindcss:
         specifier: ^3.3.0
         version: 3.3.3(ts-node@10.9.1)
@@ -69,11 +66,8 @@ importers:
   packages/unocss:
     dependencies:
       '@coloradix/colors':
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../colors
-      '@radix-ui/colors':
-        specifier: ^2.1.0
-        version: 2.1.0
       unocss:
         specifier: ^0.56.0
         version: 0.56.1(postcss@8.4.28)(vite@4.4.9)
