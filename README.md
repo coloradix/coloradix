@@ -40,6 +40,25 @@ color radix
     <tr>
       <td>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="font-size: 1rem; font-weight: 500;">@coloradix/colors</span>
+          <img alt="npm" src="https://none.deno.dev/npm/l/@coloradix/colors" />
+          <img alt="npm" src="https://none.deno.dev/npm/v/@coloradix/colors" />
+        </div>
+      </td>
+      <td>
+        <p align="center">
+          <a title="github" href="https://github.com/coloradix/coloradix/tree/main/packages/colors" target="_blank" style="display: inline-block; margin: 0px 4px;">
+            <img alt="github" src="https://none.deno.dev/ui/icon-button/simple?i=github" />
+          </a>
+          <a title="npm" href="https://www.npmjs.com/package/@coloradix/colors" target="_blank" style="display: inline-block; margin: 0px 4px;">
+            <img alt="npm" src="https://none.deno.dev/ui/icon-button/simple?c=orange&i=npm" />
+          </a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
           <span style="font-size: 1rem; font-weight: 500;">@coloradix/tailwindcss</span>
           <img alt="npm" src="https://none.deno.dev/npm/l/@coloradix/tailwindcss" />
           <img alt="npm" src="https://none.deno.dev/npm/v/@coloradix/tailwindcss" />
