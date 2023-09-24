@@ -80,8 +80,15 @@ color radix
 
 ## Authors
 
-- [flamrdevs](https://github.com/flamrdevs)
+<p>
+  <a title="github" href="https://github.com/flamrdevs">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://flamrdevs.pages.dev/badge/dark.svg">
+      <img alt="github" src="https://flamrdevs.pages.dev/badge/light.svg" hspace="1">
+    </picture>
+  </a>
+</p>
 
 ## License
 
-MIT
+[MIT License](./LICENSE)

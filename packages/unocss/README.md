@@ -1,4 +1,4 @@
-<p align="center">
+<p>
   <h1 align="center">coloradix</h1>
 </p>
 
@@ -45,7 +45,7 @@ pnpm add @coloradix/unocss @radix-ui/colors
 Typescript Config (Typescript)
 
 ```tsx
-import type { Config } from "unocss";
+import { defineConfig } from "unocss";
 
 import coloradix, { gray, red, green, blue } from "@coloradix/unocss";
 
@@ -61,14 +61,12 @@ const radix = coloradix({
   })
   .build();
 
-export default {
-  content: [],
+export default defineConfig({
   theme: {
     colors: radix.colors,
-    extend: {},
   },
-  plugins: [radix.plugin],
-} satisfies Config;
+  preflights: [radix.preflight],
+});
 ```
 
 Alias will be used as unocss colors
@@ -277,8 +275,15 @@ Expected output, will be added to unocss preflight
 
 ## Authors
 
-- [flamrdevs](https://github.com/flamrdevs)
+<p>
+  <a title="github" href="https://github.com/flamrdevs">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://flamrdevs.pages.dev/badge/dark.svg">
+      <img alt="github" src="https://flamrdevs.pages.dev/badge/light.svg" hspace="1">
+    </picture>
+  </a>
+</p>
 
 ## License
 
-MIT
+[MIT License](https://github.com/coloradix/coloradix/blob/main/LICENSE)
