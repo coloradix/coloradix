@@ -69,6 +69,8 @@ import {
 
 import type { ColorValue } from "./types";
 
+export type { Alias, Color, ColorValue, ColorsOverlayResult, ColorsResult, CustomColorObject, RadixColorObject, Shade } from "./types";
+
 // colors
 export const tomato: ColorValue<"tomato"> = [tomatoLight, tomatoDark];
 export const red: ColorValue<"red"> = [redLight, redDark];

@@ -13,7 +13,7 @@ export default defineConfig({
       formats: ["cjs", "es"],
     },
     rollupOptions: {
-      external: ["@radix-ui/colors", "tailwindcss", "tailwindcss/plugin"],
+      external: ["@coloradix/colors", "@radix-ui/colors", "tailwindcss", "tailwindcss/plugin"],
       output: {
         exports: "named",
       },

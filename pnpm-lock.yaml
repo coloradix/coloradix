@@ -38,8 +38,21 @@ importers:
         specifier: ^3.5.2
         version: 3.5.2(@types/node@20.5.4)(typescript@5.2.2)(vite@4.4.9)
 
+  packages/colors:
+    dependencies:
+      '@radix-ui/colors':
+        specifier: ^2.1.0
+        version: 2.1.0
+    devDependencies:
+      '@coloradix/tsconfig':
+        specifier: undefined
+        version: link:../tsconfig
+
   packages/tailwindcss:
     dependencies:
+      '@coloradix/colors':
+        specifier: 0.0.0
+        version: link:../colors
       '@radix-ui/colors':
         specifier: ^2.1.0
         version: 2.1.0
@@ -55,6 +68,9 @@ importers:
 
   packages/unocss:
     dependencies:
+      '@coloradix/colors':
+        specifier: 0.0.0
+        version: link:../colors
       '@radix-ui/colors':
         specifier: ^2.1.0
         version: 2.1.0

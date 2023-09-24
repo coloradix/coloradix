@@ -3,7 +3,16 @@ import plugin from "tailwindcss/plugin";
 
 import { blackA, whiteA } from "@radix-ui/colors";
 
-import type { Shade, CustomColorObject, RadixColorObject, ColorValue, Color, Alias, ColorsOverlayResult, ColorsResult } from "./types";
+import type {
+  Shade,
+  CustomColorObject,
+  RadixColorObject,
+  ColorValue,
+  Color,
+  Alias,
+  ColorsOverlayResult,
+  ColorsResult,
+} from "@coloradix/colors";
 
 type PluginCreator = Parameters<typeof plugin>[0];
 type TailwindPlugin = { handler: PluginCreator; config?: Partial<Config> | undefined };
@@ -169,6 +178,5 @@ const coloradix = <N extends string>(color: Color<N>) => {
   };
 };
 
-export * from "./colors";
-export type { ColorValue };
+export * from "@coloradix/colors";
 export default coloradix;

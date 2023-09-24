@@ -2,7 +2,16 @@ import type { Preflight } from "unocss";
 
 import { blackA, whiteA } from "@radix-ui/colors";
 
-import type { Shade, CustomColorObject, RadixColorObject, ColorValue, Color, Alias, ColorsOverlayResult, ColorsResult } from "./types";
+import type {
+  Shade,
+  CustomColorObject,
+  RadixColorObject,
+  ColorValue,
+  Color,
+  Alias,
+  ColorsOverlayResult,
+  ColorsResult,
+} from "@coloradix/colors";
 
 /**
  *
@@ -182,6 +191,5 @@ const coloradix = <N extends string>(color: Color<N>) => {
   };
 };
 
-export * from "./colors";
-export type { ColorValue };
+export * from "@coloradix/colors";
 export default coloradix;

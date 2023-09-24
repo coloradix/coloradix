@@ -13,7 +13,7 @@ export default defineConfig({
       formats: ["cjs", "es"],
     },
     rollupOptions: {
-      external: ["@coloradix/colors", "@radix-ui/colors"],
+      external: ["@radix-ui/colors"],
       output: {
         exports: "named",
       },

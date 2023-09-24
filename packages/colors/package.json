@@ -1,10 +1,9 @@
 {
-  "name": "@coloradix/tailwindcss",
-  "version": "1.6.0",
-  "description": "Coloradix for tailwindcss",
+  "name": "@coloradix/colors",
+  "version": "0.0.0",
+  "description": "Coloradix colors",
   "keywords": [
-    "@radix-ui/colors",
-    "tailwindcss"
+    "@radix-ui/colors"
   ],
   "type": "module",
   "main": "./dist/index.cjs",
@@ -39,12 +38,8 @@
   "scripts": {
     "build": "vite build"
   },
-  "dependencies": {
-    "@coloradix/colors": "0.0.0"
-  },
   "peerDependencies": {
-    "@radix-ui/colors": "^2.1.0",
-    "tailwindcss": "^3.3.0"
+    "@radix-ui/colors": "^2.1.0"
   },
   "devDependencies": {
     "@coloradix/tsconfig": "undefined"
