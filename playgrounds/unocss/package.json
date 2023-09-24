@@ -1,0 +1,20 @@
+{
+  "name": "@coloradix/unocss-playground",
+  "private": true,
+  "scripts": {
+    "dev:playground": "vite dev",
+    "build:playground": "vite build"
+  },
+  "dependencies": {
+    "solid-js": "^1.7.11"
+  },
+  "devDependencies": {
+    "@coloradix/tsconfig": "undefined",
+    "@coloradix/unocss": "undefined",
+    "@unocss/reset": "^0.56.1",
+    "@unocss/transformer-directives": "^0.56.1",
+    "unocss": "^0.56.1",
+    "vite": "^4.4.9",
+    "vite-plugin-solid": "^2.7.0"
+  }
+}
