@@ -43,7 +43,6 @@
     "@coloradix/colors": "1.0.0"
   },
   "peerDependencies": {
-    "@radix-ui/colors": "^2.1.0",
     "unocss": "^0.56.0"
   },
   "devDependencies": {
