@@ -1,5 +1,24 @@
 # @coloradix/unocss
 
+## 2.0.0
+
+### Major Changes
+
+- 0287d2f: Customizability
+  - Build options with attribute or class selector
+
+```typescript
+const radix = coloradix({
+  /* color */
+})
+  .alias({
+    /* alias */
+  })
+  .build({
+    selector: "attribute" /* or "class" */,
+  });
+```
+
 ## 1.1.0
 
 ### Minor Changes

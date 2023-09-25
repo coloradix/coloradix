@@ -1,6 +1,6 @@
 {
   "name": "@coloradix/tailwindcss",
-  "version": "1.7.0",
+  "version": "2.0.0",
   "description": "Coloradix for tailwindcss",
   "keywords": [
     "@radix-ui/colors",
