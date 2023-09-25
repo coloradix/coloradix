@@ -14,9 +14,7 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ["@coloradix/colors", "@radix-ui/colors"],
-      output: {
-        exports: "named",
-      },
+      output: { exports: "named" },
     },
   },
 });

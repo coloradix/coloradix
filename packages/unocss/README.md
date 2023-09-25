@@ -19,7 +19,7 @@
 
 # coloradix unocss
 
-simple radix colors plugin for uno
+simple radix colors for unocss
 
 ## Features
 

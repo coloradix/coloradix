@@ -12,7 +12,9 @@ const radix = coloradix({
     neutral: "gray",
     primary: ["red", "green", "blue"],
   })
-  .build();
+  .build({
+    selector: "attribute",
+  });
 
 export default {
   content: ["src/**/*.{ts,tsx}"],

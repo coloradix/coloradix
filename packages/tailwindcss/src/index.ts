@@ -1,5 +1,4 @@
-import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
+import type { Config, PluginCreator } from "tailwindcss/types/config";
 
 import { blackA, whiteA } from "@radix-ui/colors";
 
@@ -14,8 +13,12 @@ import type {
   ColorsResult,
 } from "@coloradix/colors";
 
-type PluginCreator = Parameters<typeof plugin>[0];
-type TailwindPlugin = { handler: PluginCreator; config?: Partial<Config> | undefined };
+type BuildOptions<O extends boolean> = { overlay?: O; selector?: "attribute" | "class" };
+
+type BuildResult<A extends string, O extends boolean> = {
+  colors: ColorsResult<A> & (O extends true | undefined ? ColorsOverlayResult : {});
+  plugin: { handler: PluginCreator; config?: Partial<Config> };
+};
 
 /**
  *
@@ -36,10 +39,8 @@ const coloradix = <N extends string>(color: Color<N>) => {
          * @param options build options
          * @returns colors and plugin
          */
-        build: <O extends boolean = true>(
-          options: { overlay?: O } = {}
-        ): { colors: ColorsResult<A> & (O extends true | undefined ? ColorsOverlayResult : {}); plugin: TailwindPlugin } => {
-          const { overlay = true } = options;
+        build: <O extends boolean = true>(options: BuildOptions<O> = {}): BuildResult<A, O> => {
+          const { overlay = true, selector = "attribute" } = options;
 
           const aliasentries = Object.entries(alias) as [string, string | string[]][];
 
@@ -90,87 +91,119 @@ const coloradix = <N extends string>(color: Color<N>) => {
                       11: "var(--white-11)",
                       12: "var(--white-12)",
                     },
-                  } satisfies ColorsOverlayResult)
+                  } as ColorsOverlayResult)
                 : {}) as any),
             } as any,
-            plugin: plugin(({ addBase }) => {
-              const hsl = (value: string) => value.replace(/hsl\(|\)|\,/g, "");
-              const convert = <T extends string>(name: T, radix: RadixColorObject<T>): CustomColorObject<T> => {
-                return (Object.entries(radix) as [string, string][]).reduce((object, [key, value]) => {
-                  object[`--${name}-${key.replace(/\D/g, "") as Shade}`] = hsl(value);
-                  return object;
-                }, {} as CustomColorObject<T>);
-              };
+            plugin: {
+              handler: (({ addBase }) => {
+                const convert = <T extends string>(name: T, radix: RadixColorObject<T>): CustomColorObject<T> => {
+                  return (Object.entries(radix) as [string, string][]).reduce((object, [key, value]) => {
+                    object[`--${name}-${key.replace(/\D/g, "") as Shade}`] = value.replace(/hsl\(|\)|\,/g, "");
+                    return object;
+                  }, {} as CustomColorObject<T>);
+                };
 
-              const LIGHT: CustomColorObject<string> = {};
-              const DARK: CustomColorObject<string> = {};
+                const LIGHT: CustomColorObject<string> = {};
+                const DARK: CustomColorObject<string> = {};
 
-              (Object.entries(color) as [string, ColorValue<string>][]).forEach(([name, [light, dark]]) => {
-                Object.assign(LIGHT, convert(name, light));
-                Object.assign(DARK, convert(name, dark));
-              });
+                (Object.entries(color) as [string, ColorValue<string>][]).forEach(([name, [light, dark]]) => {
+                  Object.assign(LIGHT, convert(name, light));
+                  Object.assign(DARK, convert(name, dark));
+                });
 
-              addBase({
-                [`:root, [data-theme="light"]`]: LIGHT,
-                [`[data-theme="dark"]`]: DARK,
-              });
+                const SELECTOR = {
+                  theme: (value: string) => {
+                    if (selector === "attribute") return `[data-theme="${value}"]`;
+                    if (selector === "class") return `.${value}`;
+                    console.log(`ERROR : invalid theme selector`);
+                  },
+                  alias: (name: string, value: string) => {
+                    if (selector === "attribute") return `[data-alias-${name}="${value}"]`;
+                    if (selector === "class") return `.alias-${name}-${value}`;
+                    console.log(`ERROR : invalid alias selector`);
+                  },
+                };
 
-              aliasentries.forEach(([name, color]) => {
-                if (!name.match(/^[a-zA-Z0-9]*$/)) {
-                  console.log(`ERROR : invalid ${name} alias`);
-                  return;
-                }
+                addBase({
+                  [`:root, ${SELECTOR.theme("light")}`]: LIGHT,
+                  [`${SELECTOR.theme("dark")}`]: DARK,
+                });
 
-                if (Array.isArray(color)) {
-                  color.forEach((value, index) => {
+                aliasentries.forEach(([name, color]) => {
+                  if (!name.match(/^[a-zA-Z0-9]*$/)) {
+                    console.log(`ERROR : invalid ${name} alias`);
+                    return;
+                  }
+
+                  if (Array.isArray(color)) {
+                    color.forEach((value, index) => {
+                      addBase({
+                        [[index === 0 && `:root`, `${SELECTOR.alias(name, value)}`].filter(Boolean).join(", ")]: colorobject({
+                          key: (i) => `--${name}-${i}`,
+                          value: (i) => `var(--${value}-${i})`,
+                        }),
+                      });
+                    });
+                  } else {
                     addBase({
-                      [[index === 0 && `:root`, `[data-alias-${name}="${value}"]`].filter(Boolean).join(", ")]: colorobject({
+                      [`:root`]: colorobject({
                         key: (i) => `--${name}-${i}`,
-                        value: (i) => `var(--${value}-${i})`,
+                        value: (i) => `var(--${color}-${i})`,
                       }),
                     });
-                  });
-                } else {
+                  }
+                });
+
+                if (overlay) {
                   addBase({
-                    [`:root`]: colorobject({
-                      key: (i) => `--${name}-${i}`,
-                      value: (i) => `var(--${color}-${i})`,
-                    }),
+                    [`:root`]: {
+                      "--black-1": blackA["blackA1"],
+                      "--black-2": blackA["blackA2"],
+                      "--black-3": blackA["blackA3"],
+                      "--black-4": blackA["blackA4"],
+                      "--black-5": blackA["blackA5"],
+                      "--black-6": blackA["blackA6"],
+                      "--black-7": blackA["blackA7"],
+                      "--black-8": blackA["blackA8"],
+                      "--black-9": blackA["blackA9"],
+                      "--black-10": blackA["blackA10"],
+                      "--black-11": blackA["blackA11"],
+                      "--black-12": blackA["blackA12"],
+                      "--white-1": whiteA["whiteA1"],
+                      "--white-2": whiteA["whiteA2"],
+                      "--white-3": whiteA["whiteA3"],
+                      "--white-4": whiteA["whiteA4"],
+                      "--white-5": whiteA["whiteA5"],
+                      "--white-6": whiteA["whiteA6"],
+                      "--white-7": whiteA["whiteA7"],
+                      "--white-8": whiteA["whiteA8"],
+                      "--white-9": whiteA["whiteA9"],
+                      "--white-10": whiteA["whiteA10"],
+                      "--white-11": whiteA["whiteA11"],
+                      "--white-12": whiteA["whiteA12"],
+                    },
                   });
                 }
-              });
+              }) as PluginCreator,
+              config: (() => {
+                const safelist: string[] = [];
 
-              if (overlay) {
-                addBase({
-                  [`:root`]: {
-                    "--black-1": blackA["blackA1"],
-                    "--black-2": blackA["blackA2"],
-                    "--black-3": blackA["blackA3"],
-                    "--black-4": blackA["blackA4"],
-                    "--black-5": blackA["blackA5"],
-                    "--black-6": blackA["blackA6"],
-                    "--black-7": blackA["blackA7"],
-                    "--black-8": blackA["blackA8"],
-                    "--black-9": blackA["blackA9"],
-                    "--black-10": blackA["blackA10"],
-                    "--black-11": blackA["blackA11"],
-                    "--black-12": blackA["blackA12"],
-                    "--white-1": whiteA["whiteA1"],
-                    "--white-2": whiteA["whiteA2"],
-                    "--white-3": whiteA["whiteA3"],
-                    "--white-4": whiteA["whiteA4"],
-                    "--white-5": whiteA["whiteA5"],
-                    "--white-6": whiteA["whiteA6"],
-                    "--white-7": whiteA["whiteA7"],
-                    "--white-8": whiteA["whiteA8"],
-                    "--white-9": whiteA["whiteA9"],
-                    "--white-10": whiteA["whiteA10"],
-                    "--white-11": whiteA["whiteA11"],
-                    "--white-12": whiteA["whiteA12"],
-                  },
-                });
-              }
-            }),
+                if (selector === "class") {
+                  safelist.push("light", "dark");
+                  aliasentries.forEach(([name, color]) => {
+                    if (Array.isArray(color)) {
+                      color.forEach((value) => {
+                        safelist.push(`.alias-${name}-${value}`);
+                      });
+                    }
+                  });
+                }
+
+                return {
+                  safelist,
+                };
+              })(),
+            },
           };
         },
       };

@@ -13,6 +13,13 @@ import type {
   ColorsResult,
 } from "@coloradix/colors";
 
+type BuildOptions<O extends boolean> = { overlay?: O; selector?: "attribute" | "class" };
+
+type BuildResult<A extends string, O extends boolean> = {
+  colors: ColorsResult<A> & (O extends true | undefined ? ColorsOverlayResult : {});
+  preflight: Preflight;
+};
+
 /**
  *
  * @param color colors
@@ -30,12 +37,10 @@ const coloradix = <N extends string>(color: Color<N>) => {
         /**
          *
          * @param options build options
-         * @returns colors and plugin
+         * @returns colors and preflight
          */
-        build: <O extends boolean = true>(
-          options: { overlay?: O } = {}
-        ): { colors: ColorsResult<A> & (O extends true | undefined ? ColorsOverlayResult : {}); preflight: Preflight } => {
-          const { overlay = true } = options;
+        build: <O extends boolean = true>(options: BuildOptions<O> = {}): BuildResult<A, O> => {
+          const { overlay = true, selector = "attribute" } = options;
 
           const aliasentries = Object.entries(alias) as [string, string | string[]][];
 
@@ -86,7 +91,7 @@ const coloradix = <N extends string>(color: Color<N>) => {
                       11: "var(--white-11)",
                       12: "var(--white-12)",
                     },
-                  } satisfies ColorsOverlayResult)
+                  } as ColorsOverlayResult)
                 : {}) as any),
             } as any,
             preflight: (() => {
@@ -103,10 +108,9 @@ const coloradix = <N extends string>(color: Color<N>) => {
                 css += `${_css}`;
               };
 
-              const hsl = (value: string) => value.replace(/hsl\(|\)|\,/g, "").replace(/ /g, ", ");
               const convert = <T extends string>(name: T, radix: RadixColorObject<T>): CustomColorObject<T> => {
                 return (Object.entries(radix) as [string, string][]).reduce((object, [key, value]) => {
-                  object[`--${name}-${key.replace(/\D/g, "") as Shade}`] = hsl(value);
+                  object[`--${name}-${key.replace(/\D/g, "") as Shade}`] = value.replace(/hsl\(|\)|\,/g, "").replace(/ /g, ", ");
                   return object;
                 }, {} as CustomColorObject<T>);
               };
@@ -119,9 +123,22 @@ const coloradix = <N extends string>(color: Color<N>) => {
                 Object.assign(DARK, convert(name, dark));
               });
 
+              const SELECTOR = {
+                theme: (value: string) => {
+                  if (selector === "attribute") return `[data-theme="${value}"]`;
+                  if (selector === "class") return `.${value}`;
+                  console.log(`ERROR : invalid theme selector`);
+                },
+                alias: (name: string, value: string) => {
+                  if (selector === "attribute") return `[data-alias-${name}="${value}"]`;
+                  if (selector === "class") return `.alias-${name}-${value}`;
+                  console.log(`ERROR : invalid alias selector`);
+                },
+              };
+
               addBase({
-                [`:root, [data-theme="light"]`]: LIGHT,
-                [`[data-theme="dark"]`]: DARK,
+                [`:root, ${SELECTOR.theme("light")}`]: LIGHT,
+                [`${SELECTOR.theme("dark")}`]: DARK,
               });
 
               aliasentries.forEach(([name, color]) => {
@@ -133,7 +150,7 @@ const coloradix = <N extends string>(color: Color<N>) => {
                 if (Array.isArray(color)) {
                   color.forEach((value, index) => {
                     addBase({
-                      [[index === 0 && `:root`, `[data-alias-${name}="${value}"]`].filter(Boolean).join(", ")]: colorobject({
+                      [[index === 0 && `:root`, `${SELECTOR.alias(name, value)}`].filter(Boolean).join(", ")]: colorobject({
                         key: (i) => `--${name}-${i}`,
                         value: (i) => `var(--${value}-${i})`,
                       }),

@@ -6,6 +6,8 @@ import "./index.css";
 type Theme = "light" | "dark";
 type AliasPrimary = "red" | "green" | "blue";
 
+const SELECTOR = "attribute" as "attribute" | "class";
+
 const [theme, setTheme] = createRoot(() => createSignal<Theme>("light"));
 const [primary, setPrimary] = createRoot(() => createSignal<AliasPrimary>("red"));
 
@@ -17,13 +19,29 @@ const toggleAliasPrimary = () => {
   setPrimary((state) => (state === "red" ? "green" : state === "green" ? "blue" : "red"));
 };
 
-const setDocumentTheme = (theme: Theme) => {
-  document.documentElement.setAttribute("data-theme", theme);
-};
+const setDocumentTheme =
+  SELECTOR === "attribute"
+    ? (theme: Theme) => {
+        document.documentElement.setAttribute("data-theme", theme);
+      }
+    : SELECTOR === "class"
+    ? (theme: Theme) => {
+        document.documentElement.classList.remove("light", "dark");
+        document.documentElement.classList.add(theme);
+      }
+    : () => {};
 
-const setDocumentAliasPrimary = (primary: AliasPrimary) => {
-  document.documentElement.setAttribute("data-alias-primary", primary);
-};
+const setDocumentAliasPrimary =
+  SELECTOR === "attribute"
+    ? (primary: AliasPrimary) => {
+        document.documentElement.setAttribute("data-alias-primary", primary);
+      }
+    : SELECTOR === "class"
+    ? (primary: AliasPrimary) => {
+        document.documentElement.classList.remove(...["red", "green", "blue"].map((primary) => `alias-primary-${primary}`));
+        document.documentElement.classList.add(`alias-primary-${primary}`);
+      }
+    : () => {};
 
 setDocumentTheme(theme());
 setDocumentAliasPrimary(primary());

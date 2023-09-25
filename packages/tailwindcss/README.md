@@ -19,7 +19,7 @@
 
 # coloradix tailwindcss
 
-simple radix colors plugin for tailwind
+simple radix colors for tailwindcss
 
 ## Features
 
@@ -28,7 +28,7 @@ simple radix colors plugin for tailwind
 - Light/Dark mode with data attribute `data-theme="{light|dark}"`
 - Color alias with data attribute `data-alias-{name}="{color}"`
 - Optional overlay colors (black and white)
-- Support tailwind opacity modifier `bg-{alias}-{shade}/{opacity}`
+- Support tailwindcss opacity modifier `bg-{alias}-{shade}/{opacity}`
 
 ## Installation
 
