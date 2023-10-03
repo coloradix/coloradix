@@ -39,7 +39,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@radix-ui/colors": "^2.1.0"
+    "@radix-ui/colors": "^3.0.0"
   },
   "devDependencies": {
     "@coloradix/tsconfig": "undefined"
