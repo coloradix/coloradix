@@ -55,7 +55,7 @@ const coloradix = <N extends string>(color: Color<N>) => {
               ...aliasentries.reduce((object, [name]) => {
                 object[name as A] = colorobject({
                   key: (i) => `${i}`,
-                  value: (i) => `hsl(var(--${name}-${i}) / <alpha-value>)`,
+                  value: (i) => `rgb(var(--${name}-${i}) / <alpha-value>)`,
                 });
                 return object;
               }, {} as ColorsResult<A>),
@@ -96,9 +96,17 @@ const coloradix = <N extends string>(color: Color<N>) => {
             } as any,
             plugin: {
               handler: (({ addBase }) => {
+                const format = (hex: string) => {
+                  hex = hex.replace(/#/g, "");
+
+                  return [parseInt(hex.substring(0, 2), 16), parseInt(hex.substring(2, 4), 16), parseInt(hex.substring(4, 6), 16)].join(
+                    " "
+                  );
+                };
+
                 const convert = <T extends string>(name: T, radix: RadixColorObject<T>): CustomColorObject<T> => {
                   return (Object.entries(radix) as [string, string][]).reduce((object, [key, value]) => {
-                    object[`--${name}-${key.replace(/\D/g, "") as Shade}`] = value.replace(/hsl\(|\)|\,/g, "");
+                    object[`--${name}-${key.replace(/\D/g, "") as Shade}`] = format(value);
                     return object;
                   }, {} as CustomColorObject<T>);
                 };
