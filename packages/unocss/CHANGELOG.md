@@ -1,5 +1,16 @@
 # @coloradix/unocss
 
+## 2.1.0
+
+### Minor Changes
+
+- ea14ece: Update dependencies
+
+### Patch Changes
+
+- Updated dependencies [ea14ece]
+  - @coloradix/colors@1.1.0
+
 ## 2.0.0
 
 ### Major Changes
