@@ -1,5 +1,11 @@
 # @coloradix/unocss
 
+## 2.2.0
+
+### Minor Changes
+
+- c92b26b: Fix and change color format, from `hsl` to `rgb`
+
 ## 2.1.0
 
 ### Minor Changes
