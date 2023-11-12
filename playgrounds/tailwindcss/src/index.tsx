@@ -4,19 +4,19 @@ import { render } from "solid-js/web";
 import "./index.css";
 
 type Theme = "light" | "dark";
-type AliasPrimary = "red" | "green" | "blue";
+type AliasPrimary = "pr" | "pg" | "pb";
 
 const SELECTOR = "attribute" as "attribute" | "class";
 
 const [theme, setTheme] = createRoot(() => createSignal<Theme>("light"));
-const [primary, setPrimary] = createRoot(() => createSignal<AliasPrimary>("red"));
+const [primary, setPrimary] = createRoot(() => createSignal<AliasPrimary>("pr"));
 
 const toggleTheme = () => {
   setTheme((state) => (state === "dark" ? "light" : "dark"));
 };
 
 const toggleAliasPrimary = () => {
-  setPrimary((state) => (state === "red" ? "green" : state === "green" ? "blue" : "red"));
+  setPrimary((state) => (state === "pr" ? "pg" : state === "pg" ? "pb" : "pr"));
 };
 
 const setDocumentTheme =
@@ -38,7 +38,7 @@ const setDocumentAliasPrimary =
       }
     : SELECTOR === "class"
     ? (primary: AliasPrimary) => {
-        document.documentElement.classList.remove(...["red", "green", "blue"].map((primary) => `alias-primary-${primary}`));
+        document.documentElement.classList.remove(...["pr", "pg", "pb"].map((primary) => `alias-primary-${primary}`));
         document.documentElement.classList.add(`alias-primary-${primary}`);
       }
     : () => {};

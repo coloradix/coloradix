@@ -1,19 +1,26 @@
 import type { Config } from "tailwindcss";
 
-import coloradix, { gray, red, green, blue } from "@coloradix/tailwindcss";
+import coloradix, { gray, red, green, blue, rename } from "@coloradix/tailwindcss";
 
-const radix = coloradix({
-  gray,
-  red,
-  green,
-  blue,
-})
+const radix = coloradix(
+  rename({
+    gray,
+    red,
+    green,
+    blue,
+  }).to({
+    gray: "ng",
+    red: "pr",
+    green: "pg",
+    blue: "pb",
+  })
+)
   .alias({
-    neutral: "gray",
-    primary: ["red", "green", "blue"],
+    neutral: "ng",
+    primary: ["pr", "pg", "pb"],
   })
   .build({
-    selector: "attribute",
+    selector: "class",
   });
 
 export default {
