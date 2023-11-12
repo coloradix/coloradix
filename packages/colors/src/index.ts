@@ -67,7 +67,7 @@ import {
   bronzeDark,
 } from "@radix-ui/colors";
 
-import type { ColorValue } from "./types";
+import type { Color, ColorValue } from "./types";
 
 export type { Alias, Color, ColorValue, ColorsOverlayResult, ColorsResult, CustomColorObject, RadixColorObject, Shade } from "./types";
 
@@ -106,3 +106,19 @@ export const sand: ColorValue<"sand"> = [sandLight, sandDark];
 // metals
 export const gold: ColorValue<"gold"> = [goldLight, goldDark];
 export const bronze: ColorValue<"bronze"> = [bronzeLight, bronzeDark];
+
+export const rename = <K extends string>(color: Color<K>) => {
+  return {
+    to: <V extends string>(next: Readonly<{ [key in K]: V }>) => {
+      return Object.entries(color).reduce((obj, [key, value]) => {
+        obj[next[key as K]] = (value as ColorValue<string>).map((mode) => {
+          return Object.entries(mode).reduce((_mode, [, value], index) => {
+            _mode[`${next[key as K]}${index + 1}`] = value;
+            return _mode;
+          }, {} as Record<string, string>);
+        }) as any;
+        return obj;
+      }, {} as Color<V>);
+    },
+  };
+};
