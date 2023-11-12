@@ -1,5 +1,12 @@
 # @coloradix/colors
 
+## 1.2.0
+
+### Minor Changes
+
+- b34563a: Update peers, fix color format and new utility
+  - new `rename` utility
+
 ## 1.1.0
 
 ### Minor Changes

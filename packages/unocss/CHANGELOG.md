@@ -1,5 +1,17 @@
 # @coloradix/unocss
 
+## 2.3.0
+
+### Minor Changes
+
+- b34563a: Update peers, fix color format and new utility
+  - update peer and fix color format
+
+### Patch Changes
+
+- Updated dependencies [b34563a]
+  - @coloradix/colors@1.2.0
+
 ## 2.2.0
 
 ### Minor Changes
