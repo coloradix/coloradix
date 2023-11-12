@@ -98,10 +98,7 @@ const coloradix = <N extends string>(color: Color<N>) => {
               handler: (({ addBase }) => {
                 const format = (hex: string) => {
                   hex = hex.replace(/#/g, "");
-
-                  return [parseInt(hex.substring(0, 2), 16), parseInt(hex.substring(2, 4), 16), parseInt(hex.substring(4, 6), 16)].join(
-                    " "
-                  );
+                  return `${parseInt(hex.substring(0, 2), 16)} ${parseInt(hex.substring(2, 4), 16)} ${parseInt(hex.substring(4, 6), 16)}`;
                 };
 
                 const convert = <T extends string>(name: T, radix: RadixColorObject<T>): CustomColorObject<T> => {
@@ -199,11 +196,7 @@ const coloradix = <N extends string>(color: Color<N>) => {
                 if (selector === "class") {
                   safelist.push("light", "dark");
                   aliasentries.forEach(([name, color]) => {
-                    if (Array.isArray(color)) {
-                      color.forEach((value) => {
-                        safelist.push(`.alias-${name}-${value}`);
-                      });
-                    }
+                    if (Array.isArray(color)) color.forEach((value) => safelist.push(`.alias-${name}-${value}`));
                   });
                 }
 

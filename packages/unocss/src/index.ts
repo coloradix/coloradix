@@ -110,8 +110,7 @@ const coloradix = <N extends string>(color: Color<N>) => {
 
               const format = (hex: string) => {
                 hex = hex.replace(/#/g, "");
-
-                return [parseInt(hex.substring(0, 2), 16), parseInt(hex.substring(2, 4), 16), parseInt(hex.substring(4, 6), 16)].join(", ");
+                return `${parseInt(hex.substring(0, 2), 16)} ${parseInt(hex.substring(2, 4), 16)} ${parseInt(hex.substring(4, 6), 16)}`;
               };
 
               const convert = <T extends string>(name: T, radix: RadixColorObject<T>): CustomColorObject<T> => {
