@@ -6,15 +6,15 @@
     "build:playground": "vite build"
   },
   "dependencies": {
-    "solid-js": "^1.8.5"
+    "solid-js": "^1.8.7"
   },
   "devDependencies": {
     "@coloradix/tailwindcss": "undefined",
     "@coloradix/tsconfig": "undefined",
     "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
-    "vite": "^4.5.0",
-    "vite-plugin-solid": "^2.7.2"
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "vite": "^5.0.7",
+    "vite-plugin-solid": "^2.8.0"
   }
 }
