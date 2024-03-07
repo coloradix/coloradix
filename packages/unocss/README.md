@@ -19,13 +19,12 @@
 
 # coloradix unocss
 
-simple radix colors for unocss
+coloradix integrations for [UnoCSS](https://unocss.dev)
 
 ## Features
 
-- Typescript first
-- Custom selected color individually
-- Light/Dark mode with data attribute `data-theme="{light|dark}"`
+- Choose only the colors you need
+- Light & Dark mode with data attribute `data-theme="{light|dark}"`
 - Color alias with data attribute `data-alias-{name}="{color}"`
 - Optional overlay colors (black and white)
 - Support unocss opacity modifier `bg-{alias}-{shade}/{opacity}`
@@ -33,11 +32,11 @@ simple radix colors for unocss
 ## Installation
 
 ```bash
-npm install @coloradix/unocss @radix-ui/colors
+npm install -D @coloradix/unocss
 # or
-yarn add @coloradix/unocss @radix-ui/colors
+yarn add -D @coloradix/unocss
 # or
-pnpm add @coloradix/unocss @radix-ui/colors
+pnpm add -D @coloradix/unocss
 ```
 
 ## Usage

@@ -19,13 +19,12 @@
 
 # coloradix tailwindcss
 
-simple radix colors for tailwindcss
+coloradix integrations for [TailwindCSS](https://tailwindcss.com)
 
 ## Features
 
-- Typescript first
-- Custom selected color individually
-- Light/Dark mode with data attribute `data-theme="{light|dark}"`
+- Choose only the colors you need
+- Light & Dark mode with data attribute `data-theme="{light|dark}"`
 - Color alias with data attribute `data-alias-{name}="{color}"`
 - Optional overlay colors (black and white)
 - Support tailwindcss opacity modifier `bg-{alias}-{shade}/{opacity}`
@@ -33,11 +32,11 @@ simple radix colors for tailwindcss
 ## Installation
 
 ```bash
-npm install @coloradix/tailwindcss @radix-ui/colors
+npm install -D @coloradix/tailwindcss
 # or
-yarn add @coloradix/tailwindcss @radix-ui/colors
+yarn add -D @coloradix/tailwindcss
 # or
-pnpm add @coloradix/tailwindcss @radix-ui/colors
+pnpm add -D @coloradix/tailwindcss
 ```
 
 ## Usage

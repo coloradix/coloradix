@@ -24,6 +24,13 @@ type BuildResult<A extends string, O extends boolean> = {
  *
  * @param color colors
  * @returns alias function
+ *
+ * ```typescript
+ * import coloradix, { gray, iris } from "@coloradix/tailwindcss";
+ *
+ * const radix = coloradix({ gray, iris })...;
+ * ```
+ *
  */
 const coloradix = <N extends string>(color: Color<N>) => {
   return {
@@ -31,6 +38,11 @@ const coloradix = <N extends string>(color: Color<N>) => {
      *
      * @param alias aliases
      * @returns build function
+     *
+     * ```typescript
+     * const radix = coloradix({ gray, iris }).alias({ neutral: "gray", primary: "iris" })...;
+     * ```
+     *
      */
     alias: <A extends string>(alias: Alias<A, N>) => {
       return {
@@ -38,6 +50,11 @@ const coloradix = <N extends string>(color: Color<N>) => {
          *
          * @param options build options
          * @returns colors and plugin
+         *
+         * ```typescript
+         * const radix = coloradix({ gray, iris }).alias({ neutral: "gray", primary: "iris" }).build();
+         * ```
+         *
          */
         build: <O extends boolean = true>(options: BuildOptions<O> = {}): BuildResult<A, O> => {
           const { overlay = true, selector = "attribute" } = options;

@@ -1,4 +1,6 @@
 {
+  "name": "coloradix",
+  "private": true,
   "scripts": {
     "commit": "commit",
     "dev:playground": "turbo dev:playground",
@@ -7,15 +9,15 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1",
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^18.4.3",
-    "@commitlint/prompt-cli": "^18.4.3",
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/prompt-cli": "^19.0.3",
     "@radix-ui/colors": "^3.0.0",
-    "@types/node": "^20.10.4",
-    "tailwindcss": "^3.3.6",
-    "turbo": "^1.11.1",
-    "unocss": "^0.58.0",
-    "vite": "^5.0.7",
-    "vite-plugin-dts": "^3.6.4"
+    "@types/node": "^20.11.25",
+    "tailwindcss": "^3.4.1",
+    "turbo": "^1.12.5",
+    "unocss": "^0.58.5",
+    "vite": "^5.1.5",
+    "vite-plugin-dts": "^3.7.3"
   }
 }

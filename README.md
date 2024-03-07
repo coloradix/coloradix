@@ -25,7 +25,14 @@
 
 # coloradix
 
-color radix
+Colorizing your favorite CSS frameworks with Radix Colors
+
+## Features
+
+- Choose only the colors you need
+- Light & Dark mode with data attribute
+- Color alias with data attribute
+- Overlay colors (black and white)
 
 ## Packages
 
