@@ -1,5 +1,13 @@
 # @coloradix/unocss
 
+## 2.3.2
+
+### Patch Changes
+
+- packages improvements
+- Updated dependencies
+  - @coloradix/colors@1.2.1
+
 ## 2.3.1
 
 ### Patch Changes

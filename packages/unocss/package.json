@@ -1,6 +1,6 @@
 {
   "name": "@coloradix/unocss",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Coloradix for unocss",
   "keywords": [
     "@radix-ui/colors",
@@ -35,7 +35,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@coloradix/colors": "1.2.0"
+    "@coloradix/colors": "1.2.1"
   },
   "peerDependencies": {
     "unocss": "0.58.5 - 0.59.0"

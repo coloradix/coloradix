@@ -1,6 +1,6 @@
 {
   "name": "@coloradix/tailwindcss",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Coloradix for tailwindcss",
   "keywords": [
     "@radix-ui/colors",
@@ -35,7 +35,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@coloradix/colors": "1.2.0"
+    "@coloradix/colors": "1.2.1"
   },
   "peerDependencies": {
     "tailwindcss": "3.4.1 - 4.0.0"

@@ -1,5 +1,11 @@
 # @coloradix/colors
 
+## 1.2.1
+
+### Patch Changes
+
+- packages improvements
+
 ## 1.2.0
 
 ### Minor Changes
