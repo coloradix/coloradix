@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/coloradix/coloradix/blob/main/public/cover.svg" width="100%" />
+</p>
+
 <p>
   <img width="100%" src="https://hiiiits.deno.dev/hit/coloradix/coloradix" alt="hiiiits" title="hiiiits" />
 </p>
